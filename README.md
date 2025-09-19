@@ -6,13 +6,21 @@
 ## Luana Cabezaollias --> RM99320
 ## Juliana Maita --> RM99224
 
+# 3ESR
+# Alunos
+## João Victor --> RM550453
+## Pedro Henrique Farath -->
+## Lucca Vilaça -->
+## Luana Cabezaollias --> 
+## Juliana Maita --> 
+
 # 🎰 Gambling Detection API
 
 API para detecção e prevenção de apostas compulsivas, desenvolvida em Spring Boot com Java 17.
 
-## 🚀 **COMO RODAR **
+## 🚀 **COMO RODAR - SUPER SIMPLES**
 
-### **Pré-requisito :**
+### **Pré-requisito ÚNICO:**
 - ✅ **Java 17+** instalado
 
 ### **Passos:**
@@ -66,28 +74,88 @@ mvn spring-boot:run
 - **OpenAPI/Swagger** (documentação)
 - **Maven** (gerenciamento de dependências)
 
-## 📊 **Dados de Exemplo**
-
-A aplicação já inclui dados de exemplo:
-- 5 usuários com diferentes níveis de risco
-- Sessões de apostas com padrões variados
-- Avaliações de risco automáticas
-- Intervenções aplicadas
-
 ## 🗄️ **Banco de Dados**
-
-<img width="2910" height="3724" alt="image" src="https://github.com/user-attachments/assets/dc44c8b2-e7b8-42a5-ac98-c22bd093c29b" />
 
 - **H2 em memória** - Zero configuração necessária
 - **Tabelas criadas automaticamente** pelo Hibernate
 - **Nomes das tabelas e colunas em português** para facilitar entendimento
 - **Console H2** disponível para visualização
+- **Banco vazio inicialmente** - Dados são criados conforme uso da API
 
 ### **Tabelas do Sistema:**
-- `usuarios` - Dados dos usuários
-- `sessoes_apostas` - Sessões de apostas
-- `avaliacoes_risco` - Avaliações de risco
-- `intervencoes` - Intervenções aplicadas
+
+#### **📋 `usuarios` - Dados dos usuários**
+- `id` - Identificador único
+- `nome` - Nome completo do usuário
+- `email` - Email único do usuário
+- `telefone` - Número de telefone
+- `data_nascimento` - Data de nascimento
+- `nivel_risco_atual` - Nível de risco atual (LOW, MEDIUM, HIGH, CRITICAL)
+- `total_depositos` - Total de depósitos realizados
+- `total_saques` - Total de saques realizados
+- `contador_sessoes` - Número de sessões de apostas
+- `ultima_atividade` - Data da última atividade
+- `ativo` - Status ativo/inativo
+- `criado_em` - Data de criação
+- `atualizado_em` - Data da última atualização
+
+#### **🎰 `sessoes_apostas` - Sessões de apostas**
+- `id` - Identificador único
+- `id_usuario` - Referência ao usuário
+- `inicio_sessao` - Data/hora de início
+- `fim_sessao` - Data/hora de fim
+- `duracao_minutos` - Duração em minutos
+- `valor_total_apostas` - Valor total apostado
+- `valor_total_ganhos` - Valor total ganho
+- `resultado_liquido` - Resultado líquido (ganhos - apostas)
+- `contador_apostas` - Número de apostas na sessão
+- `valor_maximo_aposta` - Maior valor apostado
+- `tipo_jogo` - Tipo de jogo
+- `plataforma` - Plataforma utilizada
+- `alta_frequencia` - Indica se houve alta frequência
+- `perseguicao_perdas` - Indica se houve perseguição de perdas
+- `indicadores_risco` - Indicadores de risco identificados
+- `criado_em` - Data de criação
+
+#### **📊 `avaliacoes_risco` - Avaliações de risco**
+- `id` - Identificador único
+- `id_usuario` - Referência ao usuário
+- `nivel_risco` - Nível de risco (LOW, MEDIUM, HIGH, CRITICAL)
+- `pontuacao_risco` - Pontuação numérica do risco
+- `motivo_avaliacao` - Motivo da avaliação
+- `indicadores_comportamentais` - Indicadores comportamentais
+- `indicadores_financeiros` - Indicadores financeiros
+- `indicadores_temporais` - Indicadores temporais
+- `analise_sessoes` - Análise das sessões
+- `recomendacoes` - Recomendações geradas
+- `automatica` - Se foi avaliação automática
+- `avaliado_por` - Quem realizou a avaliação
+- `data_avaliacao` - Data da avaliação
+- `valida_ate` - Data de validade
+- `ativa` - Se a avaliação está ativa
+- `criado_em` - Data de criação
+
+#### **🚨 `intervencoes` - Intervenções aplicadas**
+- `id` - Identificador único
+- `id_usuario` - Referência ao usuário
+- `tipo_intervencao` - Tipo (WARNING, ALTERNATIVE_SUGGESTION, TEMPORARY_BLOCK, PROFESSIONAL_REFERRAL, SUPPORT_GROUP)
+- `titulo` - Título da intervenção
+- `descricao` - Descrição detalhada
+- `mensagem` - Mensagem para o usuário
+- `acao_necessaria` - Ação necessária
+- `info_contato` - Informações de contato
+- `agendada_para` - Data agendada
+- `executada_em` - Data de execução
+- `expira_em` - Data de expiração
+- `status` - Status (PENDING, SCHEDULED, EXECUTED, CANCELLED, EXPIRED)
+- `prioridade` - Nível de prioridade
+- `automatica` - Se foi intervenção automática
+- `criada_por` - Quem criou a intervenção
+- `executada_por` - Quem executou
+- `notas_execucao` - Notas da execução
+- `resposta_usuario` - Resposta do usuário
+- `pontuacao_efetividade` - Pontuação de efetividade
+- `criado_em` - Data de criação
 
 ## 📚 **Exemplos de Uso**
 
@@ -98,7 +166,7 @@ curl -X POST http://localhost:8080/api/users \
   -d '{
     "name": "João Silva",
     "email": "joao@email.com",
-    "phone": "11999999999"
+    "phoneNumber": "11999999999"
   }'
 ```
 
@@ -123,6 +191,9 @@ curl -X POST http://localhost:8080/api/risk-assessments/analyze \
 
 ## 🏗️ **Arquitetura**
 
+<img width="2910" height="3724" alt="image" src="https://github.com/user-attachments/assets/697f1ca2-bda7-4202-bf36-91d31ed9d34a" />
+
+
 ### **Camadas da Aplicação:**
 ```
 ┌─────────────────┐
@@ -145,22 +216,6 @@ User (1) ──── (N) GamblingSession
   └─── (N) Intervention
 ```
 
-## ✅ **Critérios de Avaliação Atendidos**
-
-- ✅ **Estruturação do projeto (25%)** - Organização clara por camadas
-- ✅ **Mapeamento de requisições (20%)** - Endpoints REST bem definidos
-- ✅ **Conexão com banco (20%)** - JPA/Hibernate com H2
-- ✅ **Interface de acesso (15%)** - Swagger UI + Postman
-- ✅ **Documentação (10%)** - README completo
-- ✅ **Arquitetura e diagramas (10%)** - Diagramas incluídos
-
-## 🇧🇷 **Refatoração Completa para Português**
-
-- ✅ **Código em português** - Comentários e documentação
-- ✅ **Banco de dados em português** - Tabelas e colunas com nomes em PT
-- ✅ **Comentários simplificados** - Apenas o necessário para entendimento
-- ✅ **Interface amigável** - Fácil de entender e usar
-
 ## 🔧 **Desenvolvimento**
 
 ### **Estrutura do Projeto:**
@@ -181,29 +236,11 @@ mvn clean package
 java -jar target/gambling-detection-api-1.0.0.jar
 ```
 
-## 🌟 **Refatoração para Português**
-
-### **Mudanças Implementadas:**
-- ✅ **Comentários em português** - Todos os comentários foram traduzidos
-- ✅ **Documentação simplificada** - Apenas comentários necessários para entendimento
-- ✅ **Código limpo** - Removidos comentários desnecessários
-- ✅ **Estrutura mantida** - Funcionalidade preservada
-
-### **Arquivos Refatorados:**
-- **Entidades** - Comentários em português
-- **DTOs** - Documentação simplificada
-- **Controllers** - Comentários essenciais
-- **Services** - Lógica documentada em português
-- **Repositories** - Queries documentadas
-
 ## 📞 **Suporte**
 
-- 📧 Email: dev@gambling-detection.com
 - 📚 Documentação: http://localhost:8080/swagger-ui.html
 - 🗄️ Banco: http://localhost:8080/h2-console
 
 ---
 
 **🎯 Objetivo:** Desenvolver uma aplicação que exponha e consuma serviços via WebService (REST), contemplando modelagem, implementação e boas práticas.
-
-**📋 Critérios:** Estruturação (25%) + Mapeamento (20%) + Banco (20%) + Interface (15%) + Documentação (10%) + Arquitetura (10%)
