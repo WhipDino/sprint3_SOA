@@ -36,9 +36,6 @@ mvn spring-boot:run
 
 ## 📋 **Funcionalidades**
 
-<img width="2910" height="3724" alt="image" src="https://github.com/user-attachments/assets/dc44c8b2-e7b8-42a5-ac98-c22bd093c29b" />
-
-
 ### 🧑‍💼 **Gerenciamento de Usuários**
 - `GET /api/users` - Listar usuários
 - `POST /api/users` - Criar usuário
@@ -78,6 +75,8 @@ A aplicação já inclui dados de exemplo:
 - Intervenções aplicadas
 
 ## 🗄️ **Banco de Dados**
+
+<img width="2910" height="3724" alt="image" src="https://github.com/user-attachments/assets/dc44c8b2-e7b8-42a5-ac98-c22bd093c29b" />
 
 - **H2 em memória** - Zero configuração necessária
 - **Tabelas criadas automaticamente** pelo Hibernate
