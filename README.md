@@ -6,14 +6,6 @@
 ## Luana Cabezaollias --> RM99320
 ## Juliana Maita --> RM99224
 
-# 3ESR
-# Alunos
-## João Victor --> RM550453
-## Pedro Henrique Farath -->
-## Lucca Vilaça -->
-## Luana Cabezaollias --> 
-## Juliana Maita --> 
-
 # 🎰 Gambling Detection API
 
 API para detecção e prevenção de apostas compulsivas, desenvolvida em Spring Boot com Java 17.
