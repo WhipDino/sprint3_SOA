@@ -6,9 +6,36 @@
 ## Luana Cabezaollias --> RM99320
 ## Juliana Maita --> RM99224
 
-# 🎰 Gambling Detection API
+# 🎰 Gambling Detection API - A Ideia
 
-API para detecção e prevenção de apostas compulsivas, desenvolvida em Spring Boot com Java 17.
+## 🚨 O Problema
+Apostas compulsivas são um problema real.  
+Quando alguém percebe que tem problema, já está em situação difícil.  
+O sistema atual é **reativo** – só age depois que o problema existe.
+
+## 💡 A Solução
+Sistema que **monitora comportamento em tempo real** e detecta padrões perigosos antes que se tornem problema sério.
+
+## ⚙️ Como Funciona
+
+### Usuário Normal
+- João aposta **R$ 50 por semana**  
+- Sessões de **30 minutos**  
+- Sistema: *"Tudo normal!"*
+
+### Sinais de Alerta
+- Maria começa a apostar **R$ 500 por dia**  
+- Sessões de **6 horas**  
+- Aposta **após perdas**  
+- Sistema: *"⚠️ ALERTA! Risco alto detectado"*
+
+### Intervenção
+- Sistema envia mensagem: *"Que tal uma pausa?"*  
+- Sugere alternativas: *"Que tal um filme?"*  
+- Se necessário: **bloqueia temporariamente**
+
+## 🎯 Objetivo
+Prevenir apostas compulsivas através de **detecção precoce** e **intervenções automáticas**, ajudando pessoas antes que o problema se agrave.
 
 ## 🚀 **COMO RODAR - SUPER SIMPLES**
 
@@ -197,15 +224,6 @@ curl -X POST http://localhost:8080/api/risk-assessments/analyze \
 ├─────────────────┤
 │   Entities      │ ← Modelo de dados
 └─────────────────┘
-```
-
-### **Diagrama de Entidades:**
-```
-User (1) ──── (N) GamblingSession
-  │
-  └─── (N) RiskAssessment
-  │
-  └─── (N) Intervention
 ```
 
 ## 🔧 **Desenvolvimento**
