@@ -4,7 +4,7 @@
 ## Pedro Henrique Farath -->
 ## Lucca Vilaça -->
 ## Luana Cabezaollias --> 
-## Juliana Maita --> <br>
+## Juliana Maita --> 
 
 # 🎰 Gambling Detection API
 
