@@ -1,18 +1,18 @@
 # 3ESR
 # Alunos
 ## João Victor --> RM550453
-## Pedro Henrique Farath -->
-## Lucca Vilaça -->
-## Luana Cabezaollias --> 
-## Juliana Maita --> 
+## Pedro Henrique Farath --> RM98608
+## Lucca Vilaça --> RM551538
+## Luana Cabezaollias --> RM99320
+## Juliana Maita --> RM99224
 
 # 🎰 Gambling Detection API
 
 API para detecção e prevenção de apostas compulsivas, desenvolvida em Spring Boot com Java 17.
 
-## 🚀 **COMO RODAR - SUPER SIMPLES**
+## 🚀 **COMO RODAR **
 
-### **Pré-requisito ÚNICO:**
+### **Pré-requisito :**
 - ✅ **Java 17+** instalado
 
 ### **Passos:**
@@ -35,6 +35,9 @@ mvn spring-boot:run
   - Password: (deixe vazio)
 
 ## 📋 **Funcionalidades**
+
+<img width="2910" height="3724" alt="image" src="https://github.com/user-attachments/assets/dc44c8b2-e7b8-42a5-ac98-c22bd093c29b" />
+
 
 ### 🧑‍💼 **Gerenciamento de Usuários**
 - `GET /api/users` - Listar usuários
